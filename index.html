@@ -245,6 +245,22 @@
             <div class="wish-name-display" id="wishNameDisplay"></div>
             <textarea id="wishText" placeholder="Viết lời chúc của bạn tại đây... 🌸" class="input-field textarea-field" rows="4" maxlength="300"></textarea>
             <div class="char-count"><span id="charCount">0</span>/300</div>
+
+            <!-- Upload ảnh kèm lời chúc -->
+            <div class="wish-upload-wrap">
+              <label class="wish-upload-label" for="wishPhoto">
+                <i class="fa-solid fa-image"></i>
+                <span id="wishPhotoLabel">Thêm ảnh kèm theo (tuỳ chọn)</span>
+              </label>
+              <input type="file" id="wishPhoto" accept="image/*" onchange="previewWishPhoto(this)" />
+              <div class="wish-photo-preview" id="wishPhotoPreview" style="display:none;">
+                <img id="wishPhotoImg" src="" alt="Ảnh xem trước" />
+                <button class="wish-photo-remove" onclick="removeWishPhoto()">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+
             <button class="send-wish-btn" onclick="sendWish()">
               <i class="fa-solid fa-paper-plane"></i> Gửi Lời Chúc
             </button>

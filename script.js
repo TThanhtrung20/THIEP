@@ -494,6 +494,37 @@ function sendAnother() {
   document.getElementById("charCount").textContent = "0";
   document.getElementById("wishForm").style.display = "block";
   document.getElementById("wishSent").style.display = "none";
+  removeWishPhoto();
+}
+
+// ================================================
+// UPLOAD ẢNH KÈM LỜI CHÚC
+// ================================================
+function previewWishPhoto(input) {
+  const file = input.files[0];
+  if (!file) return;
+
+  // Giới hạn 5MB
+  if (file.size > 5 * 1024 * 1024) {
+    alert("Ảnh quá lớn! Vui lòng chọn ảnh dưới 5MB nhé 🌸");
+    input.value = "";
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    document.getElementById("wishPhotoImg").src = e.target.result;
+    document.getElementById("wishPhotoPreview").style.display = "block";
+    document.getElementById("wishPhotoLabel").textContent = "✅ Đã chọn: " + file.name;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeWishPhoto() {
+  document.getElementById("wishPhoto").value = "";
+  document.getElementById("wishPhotoImg").src = "";
+  document.getElementById("wishPhotoPreview").style.display = "none";
+  document.getElementById("wishPhotoLabel").textContent = "Thêm ảnh kèm theo (tuỳ chọn)";
 }
 
 // ================================================

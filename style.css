@@ -639,6 +639,82 @@ html, body {
    ================================================ */
 .char-count { text-align: right; font-size: 0.76rem; color: var(--text-light); margin-top: -0.6rem; margin-bottom: 0.8rem; }
 
+/* ================================================
+   UPLOAD ẢNH KÈM LỜI CHÚC
+   ================================================ */
+.wish-upload-wrap {
+  margin-bottom: 1rem;
+}
+
+/* Ẩn input file thật */
+.wish-upload-wrap input[type="file"] {
+  display: none;
+}
+
+/* Nút chọn ảnh */
+.wish-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.2rem;
+  border: 2px dashed var(--pink-mid);
+  border-radius: var(--radius-sm);
+  background: var(--pink-soft);
+  color: var(--pink-deep);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.22s, border-color 0.22s;
+  width: 100%;
+  justify-content: center;
+}
+.wish-upload-label:hover {
+  background: var(--pink-pastel);
+  border-color: var(--pink);
+}
+.wish-upload-label i {
+  font-size: 1.1rem;
+  color: var(--pink);
+}
+
+/* Preview ảnh */
+.wish-photo-preview {
+  position: relative;
+  margin-top: 0.7rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--shadow-soft);
+  border: 2px solid var(--pink-mid);
+}
+.wish-photo-preview img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.wish-photo-remove {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  border: 2px solid var(--pink-mid);
+  color: var(--pink-deep);
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.wish-photo-remove:hover {
+  background: var(--pink-light);
+  transform: scale(1.1) rotate(90deg);
+}
+
 .wish-name-display {
   background: var(--pink-pastel);
   border: 2px solid var(--pink-mid);
