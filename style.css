@@ -155,7 +155,7 @@ html, body {
   position: absolute;
   bottom: 26px;
   left: 0;
-  animation: driveAcross 8s linear infinite;
+  animation: driveAcross 15s linear 1 forwards;
 }
 
 .kitty-rider img {
