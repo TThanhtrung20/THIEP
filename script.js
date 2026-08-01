@@ -420,20 +420,21 @@ function submitRSVP(answer) {
   form.style.display = "none";
   result.style.display = "block";
 
+  const photoYes = document.getElementById("rsvpResultPhoto");
+  const photoNo  = document.getElementById("rsvpResultPhotoNo");
+
   if (answer === "yes") {
     emoji.textContent = "🎉";
     msg.innerHTML = `Yay! Cảm ơn <strong>${escapeHtml(name)}</strong> đã xác nhận tham dự!<br/>
       Mình rất vui khi được đón bạn! Hẹn gặp nhau nhé 🎀`;
-    // Hiện ảnh khi đến
-    const photo = document.getElementById("rsvpResultPhoto");
-    if (photo) photo.style.display = "block";
+    if (photoYes) photoYes.style.display = "block";
+    if (photoNo)  photoNo.style.display  = "none";
   } else {
     emoji.textContent = "🥺";
     msg.innerHTML = `Ôi thật tiếc khi <strong>${escapeHtml(name)}</strong> không đến được!<br/>
       Mình hiểu mà, lần khác nhất định hội tụ nhé! 🌸`;
-    // Ẩn ảnh khi không đến
-    const photo = document.getElementById("rsvpResultPhoto");
-    if (photo) photo.style.display = "none";
+    if (photoNo)  photoNo.style.display  = "block";
+    if (photoYes) photoYes.style.display = "none";
   }
 
   // Confetti nếu đến

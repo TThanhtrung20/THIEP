@@ -596,6 +596,15 @@ html, body {
   display: block;
 }
 
+.rsvp-no-caption {
+  margin-top: 0.6rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--pink-deep);
+}
+
 .rsvp-desc, .wishes-desc { text-align: center; color: var(--text-mid); font-size: 0.97rem; margin-bottom: 1.4rem; }
 .rsvp-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .rsvp-yes, .rsvp-no {
