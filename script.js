@@ -18,7 +18,7 @@ const CONFIG = {
 
   // ⬇⬇ DÁN URL GOOGLE APPS SCRIPT VÀO ĐÂY sau khi deploy ⬇⬇
   // Hướng dẫn lấy URL ở file HUONG-DAN-SETUP.md
-  sheetsWebAppUrl: "",   // Ví dụ: "https://script.google.com/macros/s/AKfyc.../exec"
+  sheetsWebAppUrl: "https://script.google.com/macros/s/AKfycbylzR_W4FJWBgIRO_ULCsTvxaCfxe6ZaoQhE9xewRPtMAeq2QUaNUIGq9A_cbOomZo27A/exec",
 };
 
 // ================================================
