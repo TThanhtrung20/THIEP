@@ -333,15 +333,15 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 220px;
+  height: 270px;
   position: relative;
   perspective: 900px;
 }
 
 .c-item {
   position: absolute;
-  width: 130px;
-  height: 185px;
+  width: 160px;
+  height: 220px;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(232,82,122,0.22);
@@ -367,22 +367,22 @@ html, body {
 }
 /* Ảnh trái 1 */
 .c-item.pos-left1 {
-  transform: translateX(-140px) scale(0.8) rotateY(25deg);
+  transform: translateX(-170px) scale(0.8) rotateY(25deg);
   opacity: 0.85; z-index: 4;
 }
 /* Ảnh phải 1 */
 .c-item.pos-right1 {
-  transform: translateX(140px) scale(0.8) rotateY(-25deg);
+  transform: translateX(170px) scale(0.8) rotateY(-25deg);
   opacity: 0.85; z-index: 4;
 }
 /* Ảnh trái 2 */
 .c-item.pos-left2 {
-  transform: translateX(-240px) scale(0.62) rotateY(40deg);
+  transform: translateX(-285px) scale(0.62) rotateY(40deg);
   opacity: 0.5; z-index: 3;
 }
 /* Ảnh phải 2 */
 .c-item.pos-right2 {
-  transform: translateX(240px) scale(0.62) rotateY(-40deg);
+  transform: translateX(285px) scale(0.62) rotateY(-40deg);
   opacity: 0.5; z-index: 3;
 }
 
