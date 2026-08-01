@@ -430,7 +430,7 @@ function submitRSVP(answer) {
     if (photoYes) photoYes.style.display = "block";
     if (photoNo)  photoNo.style.display  = "none";
   } else {
-    emoji.textContent = "🥺";
+    emoji.textContent = "";
     msg.innerHTML = `Ôi thật tiếc khi <strong>${escapeHtml(name)}</strong> không đến được!<br/>
       Mình hiểu mà, lần khác nhất định hội tụ nhé! 🌸`;
     if (photoNo)  photoNo.style.display  = "block";
