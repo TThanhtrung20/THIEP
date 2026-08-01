@@ -89,8 +89,8 @@ function goToSlide(index) {
 }
 
 function initSlideshow() {
+  // Chỉ render vị trí ban đầu, timer sẽ khởi động sau khi thiệp mở
   updateCarousel();
-  slideTimer = setInterval(() => goToSlide(currentSlide + 1), 2800);
 
   // Bấm vào ảnh để chuyển
   document.querySelectorAll('.c-item').forEach((item, i) => {
@@ -256,8 +256,11 @@ function openCard() {
     card.classList.add("visible");
     window.scrollTo({ top: 0, behavior: "smooth" });
     autoPlayMusic();
-    // Render carousel ngay khi thiệp mở ra
+
+    // Render carousel + khởi động timer sau khi thiệp visible
     updateCarousel();
+    clearInterval(slideTimer);
+    slideTimer = setInterval(() => goToSlide(currentSlide + 1), 2800);
   }, 750);
 }
 
