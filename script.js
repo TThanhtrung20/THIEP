@@ -127,14 +127,13 @@ function buildHeartCollage() {
   const W = window.innerWidth;
   const H = window.innerHeight;
 
-  // Tâm và scale trái tim
-  const cx = W / 2;
-  const cy = H / 2;
-  const scale = Math.min(W, H) * 0.21;
+  // Thu nhỏ và đặt trái tim sang góc dưới phải
+  const scale = Math.min(W, H) * 0.11;
+  const cx = W * 0.78;
+  const cy = H * 0.72;
 
-  // Tạo tọa độ trái tim bằng parametric: x=16sin³t, y=13cost-5cos2t-2cos3t-cos4t
-  const points = [];
   const steps = HEART_PHOTOS.length;
+  const points = [];
   for (let i = 0; i < steps; i++) {
     const t = (i / steps) * 2 * Math.PI;
     const hx = 16 * Math.pow(Math.sin(t), 3);
@@ -145,7 +144,7 @@ function buildHeartCollage() {
     });
   }
 
-  const size = Math.max(36, Math.min(W, H) * 0.072);
+  const size = Math.max(28, Math.min(W, H) * 0.048);
 
   points.forEach((pt, i) => {
     const div = document.createElement('div');
@@ -156,6 +155,7 @@ function buildHeartCollage() {
       left: ${pt.x - size/2}px;
       top:  ${pt.y - size/2}px;
       animation-delay: ${i * 0.05}s;
+      opacity: 0;
     `;
     const img = document.createElement('img');
     img.src = HEART_PHOTOS[i % HEART_PHOTOS.length];

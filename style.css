@@ -102,7 +102,7 @@ html, body {
 
 @keyframes heartPhotoIn {
   from { opacity: 0; transform: scale(0.4); }
-  to   { opacity: 0.82; transform: scale(1); }
+  to   { opacity: 0.55; transform: scale(1); }
 }
 
 /* ================================================
@@ -122,11 +122,6 @@ html, body {
   text-align: center;
   padding: 2rem 1.5rem;
   animation: fadeInUp 1s ease;
-  /* Nền mờ nhẹ để chữ đọc rõ trên ảnh */
-  background: rgba(255,240,244,0.55);
-  backdrop-filter: blur(6px);
-  border-radius: var(--radius);
-  box-shadow: 0 4px 24px rgba(232,82,122,0.08);
 }
 
 .cap-icon { font-size: 5rem; margin-bottom: 0.6rem; animation: bounce 2.2s ease infinite; display: block; }
