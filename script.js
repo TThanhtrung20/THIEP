@@ -103,12 +103,12 @@ function createParticles() {
 
   // ---- 1. Bong bóng tròn ----
   const bubbleColors = [
-    "rgba(126,200,227,0.55)",
-    "rgba(184,223,240,0.65)",
-    "rgba(74,168,200,0.45)",
+    "rgba(255,133,161,0.45)",
+    "rgba(255,179,198,0.55)",
+    "rgba(232,82,122,0.35)",
     "rgba(255,255,255,0.75)",
-    "rgba(255,192,203,0.5)",   // hồng nhạt
-    "rgba(200,232,245,0.6)",
+    "rgba(255,214,224,0.65)",
+    "rgba(255,240,244,0.7)",
   ];
   const bubbleCount = isMobile ? 16 : 26;
 
@@ -375,11 +375,11 @@ function submitRSVP(answer) {
   if (answer === "yes") {
     emoji.textContent = "🎉";
     msg.innerHTML = `Yay! Cảm ơn <strong>${escapeHtml(name)}</strong> đã xác nhận tham dự!<br/>
-      Mình rất vui khi được đón bạn! Hẹn gặp nhau nhé 💙`;
+      Mình rất vui khi được đón bạn! Hẹn gặp nhau nhé 🎀`;
   } else {
     emoji.textContent = "🥺";
     msg.innerHTML = `Ôi thật tiếc khi <strong>${escapeHtml(name)}</strong> không đến được!<br/>
-      Mình hiểu mà, lần khác nhất định hội tụ nhé! 💙`;
+      Mình hiểu mà, lần khác nhất định hội tụ nhé! 🌸`;
   }
 
   // Confetti nếu đến
@@ -538,7 +538,7 @@ function clearWishes() {
 // CONFETTI NHỎ - Khi xác nhận tham dự
 // ================================================
 function launchConfetti() {
-  const colors = ["#7ec8e3", "#b8dff0", "#4aa8c8", "#ffffff", "#ffd6e0", "#d4e8f5"];
+  const colors = ["#ff85a1", "#ffb3c6", "#e8527a", "#ffffff", "#ffd6e0", "#ff4d7a"];
   const count  = 60;
 
   for (let i = 0; i < count; i++) {

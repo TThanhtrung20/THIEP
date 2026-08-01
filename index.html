@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Thiệp Mời Tốt Nghiệp 🎓</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- HTMX — form submit nhẹ, không reload trang -->
+  <script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js" defer></script>
 </head>
 <body>
 
@@ -16,14 +18,36 @@
   <!-- ===== TRANG BÌA ===== -->
   <div class="cover-page" id="coverPage">
     <div class="cover-content">
-      <div class="cap-icon">🎓</div>
-      <p class="cover-sub">Bạn nhận được một lời mời đặc biệt</p>
+      <!-- Hello Kitty lớn trên bìa -->
+      <div class="cover-kitty">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="110" height="110">
+          <polygon points="10,42 23,10 36,40" fill="#fff" stroke="#ffb7c5" stroke-width="2.5"/>
+          <polygon points="64,40 77,10 90,42" fill="#fff" stroke="#ffb7c5" stroke-width="2.5"/>
+          <path d="M13,32 Q22,23 17,13 Q27,20 22,32Z" fill="#ff6b8a" opacity="0.9"/>
+          <ellipse cx="50" cy="60" rx="38" ry="36" fill="#fff" stroke="#ffb7c5" stroke-width="2"/>
+          <ellipse cx="37" cy="53" rx="4.5" ry="5" fill="#333"/>
+          <circle cx="38.5" cy="51.5" r="1.6" fill="#fff"/>
+          <ellipse cx="63" cy="53" rx="4.5" ry="5" fill="#333"/>
+          <circle cx="64.5" cy="51.5" r="1.6" fill="#fff"/>
+          <ellipse cx="50" cy="62" rx="3" ry="2" fill="#ff9db5"/>
+          <line x1="12" y1="62" x2="43" y2="64" stroke="#ccc" stroke-width="1.6"/>
+          <line x1="12" y1="68" x2="43" y2="67" stroke="#ccc" stroke-width="1.6"/>
+          <line x1="57" y1="64" x2="88" y2="62" stroke="#ccc" stroke-width="1.6"/>
+          <line x1="57" y1="67" x2="88" y2="68" stroke="#ccc" stroke-width="1.6"/>
+          <!-- Nơ to -->
+          <path d="M43,27 Q50,18 57,27 Q50,23 43,27Z" fill="#ff6b8a"/>
+          <path d="M43,27 Q36,19 40,12 Q50,19 43,27Z" fill="#ff4d7a"/>
+          <path d="M57,27 Q60,13 68,15 Q63,22 57,27Z" fill="#ff4d7a"/>
+          <circle cx="50" cy="26" r="4.5" fill="#ff1a5e"/>
+        </svg>
+      </div>
+      <p class="cover-sub">✨ Bạn nhận được một lời mời đặc biệt ✨</p>
       <h1 class="cover-title">Thiệp Mời<br/>Tốt Nghiệp</h1>
-      <p class="cover-name">Huỳnh Minh Thư (Minzther nè 🫶 )</p>
-      <p class="cover-hint">Chạm để mở thiệp ✨</p>
+      <p class="cover-name">Huỳnh Minh Thư 🎀</p>
+      <p class="cover-hint">Chạm để mở thiệp 💌</p>
       <button class="open-btn" id="openBtn" onclick="openCard()">
-        <span>Mở Thiệp</span>
         <i class="fa-solid fa-envelope-open-text"></i>
+        <span>Mở Thiệp</span>
       </button>
     </div>
     <!-- Nút nhạc nằm góc bìa -->
@@ -117,14 +141,15 @@
               <div class="event-icon"><i class="fa-solid fa-location-dot"></i></div>
               <div class="event-info">
                 <span class="event-label">Địa Điểm</span>
-                <span class="event-value">Đại học Kinh tế - Tài chính Tp Hồ Chí Minh <br/>1 Cơ sở 161 - 161A Điện Biên Phủ, Phường Gia Định, Thành phố Hồ Chí Minh</span>
+                <span class="event-value">Nhà hát Hòa Bình <br/>
+240 3 Tháng 2, Hòa Hưng, Hồ Chí Minh, Việt Nam</span>
               </div>
             </div>
           </div>
 
           <!-- Nút Google Maps -->
           <a class="map-btn"
-             href="https://maps.app.goo.gl/WobCqmNGZfj2Adb46"
+             href="https://maps.app.goo.gl/HPZrfFiPXGCFt96Y6"
              target="_blank" rel="noopener">
             <i class="fa-solid fa-map-location-dot"></i>
             Xem trên Google Maps
