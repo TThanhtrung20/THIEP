@@ -123,14 +123,15 @@ const HEART_PHOTOS = [
 function buildHeartCollage() {
   const container = document.getElementById('heartCollage');
   if (!container) return;
+  container.innerHTML = ''; // xóa cũ nếu có
 
   const W = window.innerWidth;
   const H = window.innerHeight;
 
-  // Tâm giữa màn hình, scale to vừa bao quanh thiệp
   const cx = W / 2;
-  const cy = H / 2;
-  const scale = Math.min(W, H) * 0.18;
+  const cy = H / 2 - H * 0.03; // dịch lên xíu cho cân đối
+  // Scale: dùng chiều rộng để trái tim đủ to chứa thiệp
+  const scale = Math.min(W * 0.38, H * 0.38);
 
   const steps = HEART_PHOTOS.length;
   const points = [];
@@ -144,7 +145,8 @@ function buildHeartCollage() {
     });
   }
 
-  const size = Math.max(42, Math.min(W, H) * 0.075);
+  // Ảnh to vừa, không chồng lên nhau quá nhiều
+  const size = Math.max(52, Math.min(W, H) * 0.09);
 
   points.forEach((pt, i) => {
     const div = document.createElement('div');
@@ -154,7 +156,7 @@ function buildHeartCollage() {
       height: ${size}px;
       left: ${pt.x - size/2}px;
       top:  ${pt.y - size/2}px;
-      animation-delay: ${i * 0.05}s;
+      animation-delay: ${i * 0.04}s;
       opacity: 0;
     `;
     const img = document.createElement('img');
