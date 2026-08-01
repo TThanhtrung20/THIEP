@@ -260,7 +260,6 @@ html, body {
   height: auto;
   display: block;
   filter: drop-shadow(0 4px 8px rgba(232,82,122,0.3));
-  transform: scaleX(-1);
 }
 
 @keyframes driveAcross {
