@@ -578,6 +578,21 @@ html, body {
 /* ================================================
    RSVP
    ================================================ */
+.rsvp-photo-wrap {
+  margin: -2.2rem -2rem 1.4rem;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+  height: 220px;
+}
+
+.rsvp-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
 .rsvp-desc, .wishes-desc { text-align: center; color: var(--text-mid); font-size: 0.97rem; margin-bottom: 1.4rem; }
 .rsvp-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .rsvp-yes, .rsvp-no {
