@@ -110,9 +110,66 @@ function initSlideshow() {
 }
 
 // ================================================
+// HEART COLLAGE - Trang bìa
+// ================================================
+const HEART_PHOTOS = [
+  'img/a1.jpeg','img/a2.jpeg','img/a3.jpeg','img/a4.jpeg','img/a5.jpeg',
+  'img/photo1.jpg','img/photo2.jpg','img/photo3.jpg','img/photo4.jpg','img/photo5.jpg',
+  'img/g1.jpg','img/g2.jpg','img/g3.jpg','img/g4.jpg','img/g5.jpg',
+  'img/g6.jpg','img/g7.jpg','img/g8.jpg','img/g9.jpg','img/g10.jpg',
+  'img/g11.jpg','img/g12.jpg','img/g13.jpg','img/23.jpg',
+];
+
+function buildHeartCollage() {
+  const container = document.getElementById('heartCollage');
+  if (!container) return;
+
+  const W = window.innerWidth;
+  const H = window.innerHeight;
+
+  // Tâm và scale trái tim
+  const cx = W / 2;
+  const cy = H / 2;
+  const scale = Math.min(W, H) * 0.21;
+
+  // Tạo tọa độ trái tim bằng parametric: x=16sin³t, y=13cost-5cos2t-2cos3t-cos4t
+  const points = [];
+  const steps = HEART_PHOTOS.length;
+  for (let i = 0; i < steps; i++) {
+    const t = (i / steps) * 2 * Math.PI;
+    const hx = 16 * Math.pow(Math.sin(t), 3);
+    const hy = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+    points.push({
+      x: cx + hx * scale / 16,
+      y: cy + hy * scale / 16,
+    });
+  }
+
+  const size = Math.max(36, Math.min(W, H) * 0.072);
+
+  points.forEach((pt, i) => {
+    const div = document.createElement('div');
+    div.className = 'heart-photo';
+    div.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${pt.x - size/2}px;
+      top:  ${pt.y - size/2}px;
+      animation-delay: ${i * 0.05}s;
+    `;
+    const img = document.createElement('img');
+    img.src = HEART_PHOTOS[i % HEART_PHOTOS.length];
+    img.alt = '';
+    div.appendChild(img);
+    container.appendChild(div);
+  });
+}
+
+// ================================================
 // KHỞI TẠO KHI TRANG TẢI
 // ================================================
 document.addEventListener("DOMContentLoaded", () => {
+  buildHeartCollage();
   createParticles();
   startCountdown();
   initMusicState();

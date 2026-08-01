@@ -73,6 +73,39 @@ html, body {
 }
 
 /* ================================================
+   HEART COLLAGE - Trang bìa
+   ================================================ */
+.heart-collage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart-photo {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid rgba(255,255,255,0.85);
+  box-shadow: 0 3px 10px rgba(232,82,122,0.25);
+  opacity: 0;
+  animation: heartPhotoIn 0.6s ease forwards;
+}
+
+.heart-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes heartPhotoIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 0.82; transform: scale(1); }
+}
+
+/* ================================================
    TRANG BÌA
    ================================================ */
 .cover-page {
@@ -85,10 +118,15 @@ html, body {
 
 .cover-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   text-align: center;
   padding: 2rem 1.5rem;
   animation: fadeInUp 1s ease;
+  /* Nền mờ nhẹ để chữ đọc rõ trên ảnh */
+  background: rgba(255,240,244,0.55);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 24px rgba(232,82,122,0.08);
 }
 
 .cap-icon { font-size: 5rem; margin-bottom: 0.6rem; animation: bounce 2.2s ease infinite; display: block; }
