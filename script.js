@@ -127,10 +127,10 @@ function buildHeartCollage() {
   const W = window.innerWidth;
   const H = window.innerHeight;
 
-  // Thu nhỏ và đặt trái tim sang góc dưới phải
-  const scale = Math.min(W, H) * 0.11;
-  const cx = W * 0.78;
-  const cy = H * 0.72;
+  // Tâm giữa màn hình, scale to vừa bao quanh thiệp
+  const cx = W / 2;
+  const cy = H / 2;
+  const scale = Math.min(W, H) * 0.18;
 
   const steps = HEART_PHOTOS.length;
   const points = [];
@@ -144,7 +144,7 @@ function buildHeartCollage() {
     });
   }
 
-  const size = Math.max(28, Math.min(W, H) * 0.048);
+  const size = Math.max(42, Math.min(W, H) * 0.075);
 
   points.forEach((pt, i) => {
     const div = document.createElement('div');
