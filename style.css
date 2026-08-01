@@ -155,7 +155,7 @@ html, body {
   position: absolute;
   bottom: 26px;
   left: 0;
-  animation: driveAcross 4.5s linear infinite;
+  animation: driveAcross 8s linear infinite;
 }
 
 .kitty-rider img {
@@ -163,11 +163,12 @@ html, body {
   height: auto;
   display: block;
   filter: drop-shadow(0 4px 8px rgba(232,82,122,0.3));
+  transform: scaleX(-1);
 }
 
 @keyframes driveAcross {
-  0%   { left: -120px; }
-  100% { left: calc(100% + 20px); }
+  0%   { left: calc(100% + 20px); }
+  100% { left: -120px; }
 }
 
 @media (max-width: 480px) {
