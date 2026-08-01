@@ -255,8 +255,9 @@ function openCard() {
     cover.style.display = "none";
     card.classList.add("visible");
     window.scrollTo({ top: 0, behavior: "smooth" });
-    // Tự động phát nhạc khi mở thiệp
     autoPlayMusic();
+    // Render carousel ngay khi thiệp mở ra
+    updateCarousel();
   }, 750);
 }
 
