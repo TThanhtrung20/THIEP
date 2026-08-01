@@ -128,39 +128,54 @@
           <h2 class="section-title">Thông Tin Sự Kiện</h2>
           <div class="divider-fancy"></div>
 
-          <div class="event-details">
-            <div class="event-item">
-              <div class="event-icon"><i class="fa-solid fa-calendar-days"></i></div>
-              <div class="event-info">
-                <span class="event-label">Ngày</span>
-                <span class="event-value">Thứ Năm, 27 tháng 8 năm 2026</span>
+          <!-- 2 cột: thông tin + hình -->
+          <div class="event-layout">
+
+            <!-- Cột trái: thông tin -->
+            <div class="event-info-col">
+              <div class="event-details">
+                <div class="event-item">
+                  <div class="event-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                  <div class="event-info">
+                    <span class="event-label">Ngày</span>
+                    <span class="event-value">Thứ Năm, 27 tháng 8 năm 2026</span>
+                  </div>
+                </div>
+
+                <div class="event-item">
+                  <div class="event-icon"><i class="fa-solid fa-clock"></i></div>
+                  <div class="event-info">
+                    <span class="event-label">Thời Gian</span>
+                    <span class="event-value">15:30 – 17:30</span>
+                  </div>
+                </div>
+
+                <div class="event-item">
+                  <div class="event-icon"><i class="fa-solid fa-location-dot"></i></div>
+                  <div class="event-info">
+                    <span class="event-label">Địa Điểm</span>
+                    <span class="event-value">Nhà hát Hòa Bình<br/>240 3 Tháng 2, Hòa Hưng, TP.HCM</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="event-item">
-              <div class="event-icon"><i class="fa-solid fa-clock"></i></div>
-              <div class="event-info">
-                <span class="event-label">Thời Gian</span>
-                <span class="event-value">15:30 – 17:30</span>
+            <!-- Cột phải: hình 23.jpg -->
+            <div class="event-photo-col">
+              <div class="event-photo-wrap">
+                <img src="img/23.jpg" alt="Ảnh sự kiện" />
+                <p class="event-photo-caption">Mình chờ nè 🥰</p>
               </div>
             </div>
 
-            <div class="event-item">
-              <div class="event-icon"><i class="fa-solid fa-location-dot"></i></div>
-              <div class="event-info">
-                <span class="event-label">Địa Điểm</span>
-                <span class="event-value">Nhà hát Hòa Bình <br/>
-240 3 Tháng 2, Hòa Hưng, Hồ Chí Minh, Việt Nam</span>
-              </div>
-            </div>
-          </div>
+          </div><!-- end event-layout -->
 
           <!-- Nút Google Maps -->
           <a class="map-btn"
              href="https://maps.app.goo.gl/HPZrfFiPXGCFt96Y6"
              target="_blank" rel="noopener">
             <i class="fa-solid fa-map-location-dot"></i>
-            🌸🌸Bấm vào đây nè nha cả nhà 🌸💙.
+            🌸🌸 Bấm vào đây nè nha cả nhà 🌸💙
           </a>
 
           <!-- Countdown
