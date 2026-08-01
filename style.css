@@ -112,85 +112,69 @@ html, body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 110px;
-  overflow: hidden;
+  height: 130px;
   pointer-events: none;
+  z-index: 2;
 }
 
 /* Đường kẻ ngang */
 .road-line {
   position: absolute;
-  bottom: 28px;
+  bottom: 22px;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg,
     transparent 0%,
-    var(--pink-mid) 8%,
-    var(--pink-mid) 92%,
+    var(--pink-mid) 5%,
+    var(--pink-mid) 95%,
     transparent 100%
   );
   border-radius: 2px;
 }
 
-/* Nét đứt giữa đường */
+/* Nét đứt trên đường */
 .road-line::after {
   content: '';
   position: absolute;
-  top: 50%;
+  top: -8px;
   left: 0;
   width: 100%;
   height: 2px;
   background: repeating-linear-gradient(
     90deg,
-    transparent,
-    transparent 18px,
-    rgba(255,133,161,0.4) 18px,
-    rgba(255,133,161,0.4) 36px
+    transparent 0px,
+    transparent 16px,
+    rgba(255,133,161,0.5) 16px,
+    rgba(255,133,161,0.5) 32px
   );
-  transform: translateY(-50%);
 }
 
 /* Hello Kitty chạy xe */
 .kitty-rider {
   position: absolute;
-  bottom: 28px;
-  left: -160px;
-  animation: driveAcross 5s linear infinite;
+  bottom: 26px;
+  left: 0;
+  animation: driveAcross 4.5s linear infinite;
 }
 
 .kitty-rider img {
-  width: 110px;
+  width: 100px;
   height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 10px rgba(232,82,122,0.25));
   display: block;
-  transform: translateY(-100%);
+  filter: drop-shadow(0 4px 8px rgba(232,82,122,0.3));
 }
 
 @keyframes driveAcross {
-  0%   { left: -140px; }
+  0%   { left: -120px; }
   100% { left: calc(100% + 20px); }
 }
 
-/* Bóng bánh xe */
-.kitty-rider::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 8px;
-  background: radial-gradient(ellipse, rgba(232,82,122,0.2), transparent 70%);
-  border-radius: 50%;
-}
-
 @media (max-width: 480px) {
-  .kitty-rider img { width: 80px; }
-  .kitty-road { height: 85px; }
-  .road-line { bottom: 20px; }
-  .kitty-rider { bottom: 20px; animation-duration: 4s; }
+  .kitty-road { height: 100px; }
+  .road-line { bottom: 16px; }
+  .kitty-rider { bottom: 20px; }
+  .kitty-rider img { width: 75px; }
 }
 @keyframes kittyWiggle {
   0%,100%{transform:rotate(-3deg) scale(1)}
