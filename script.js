@@ -55,25 +55,46 @@ function sendToNetlify(formName, fields) {
 }
 
 // ================================================
-// PHOTO SLIDESHOW
+// 3D CAROUSEL
 // ================================================
 let currentSlide = 0;
+const TOTAL = 5;
 let slideTimer = null;
 
-function initSlideshow() {
-  slideTimer = setInterval(() => {
-    currentSlide = (currentSlide + 1) % 5;
-    goToSlide(currentSlide);
-  }, 3000);
+// Các vị trí theo thứ tự: center, right1, right2, left2, left1
+const POSITIONS = ['pos-center','pos-right1','pos-right2','pos-left2','pos-left1'];
+
+function updateCarousel() {
+  const items = document.querySelectorAll('.c-item');
+  items.forEach((item, i) => {
+    // Xoá tất cả class vị trí cũ
+    item.classList.remove('pos-center','pos-right1','pos-right2','pos-left2','pos-left1');
+    // Tính vị trí tương đối so với currentSlide
+    const offset = (i - currentSlide + TOTAL) % TOTAL;
+    item.classList.add(POSITIONS[offset]);
+  });
+
+  // Cập nhật dots
+  document.querySelectorAll('.dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlide);
+  });
 }
 
 function goToSlide(index) {
-  currentSlide = index;
-  const track = document.getElementById("photoTrack");
-  if (track) track.style.transform = `translateX(-${index * 100}%)`;
+  currentSlide = (index + TOTAL) % TOTAL;
+  updateCarousel();
+  // Reset timer
+  clearInterval(slideTimer);
+  slideTimer = setInterval(() => goToSlide(currentSlide + 1), 2800);
+}
 
-  document.querySelectorAll(".dot").forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
+function initSlideshow() {
+  updateCarousel();
+  slideTimer = setInterval(() => goToSlide(currentSlide + 1), 2800);
+
+  // Bấm vào ảnh để chuyển
+  document.querySelectorAll('.c-item').forEach((item, i) => {
+    item.addEventListener('click', () => goToSlide(i));
   });
 }
 
