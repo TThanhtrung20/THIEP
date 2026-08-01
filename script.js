@@ -249,14 +249,20 @@ function openCard() {
   const cover = document.getElementById("coverPage");
   const card  = document.getElementById("cardWrapper");
 
+  // Phát nhạc ngay lập tức khi bấm — trình duyệt cho phép vì có tương tác
+  const audio = document.getElementById("bgMusic");
+  audio.volume = 0.45;
+  audio.play().then(() => {
+    musicPlaying = true;
+    updateMusicIcons(true);
+  }).catch(() => {});
+
   cover.classList.add("hide");
 
   setTimeout(() => {
     cover.style.display = "none";
     card.classList.add("visible");
     window.scrollTo({ top: 0, behavior: "smooth" });
-    autoPlayMusic();
-
     // Render carousel + khởi động timer sau khi thiệp visible
     updateCarousel();
     clearInterval(slideTimer);
