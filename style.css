@@ -81,19 +81,6 @@ html, body {
   background: linear-gradient(160deg, #ffd6e7 0%, #ffe4ec 40%, #fff0f6 70%, #fff5f8 100%);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-/* Hình Kitty góc dưới phải */
-.cover-page::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 260px;
-  height: 260px;
-  background: url('hinh-a1.webp') right bottom / contain no-repeat;
-  opacity: 0.92;
-  z-index: 0;
-  pointer-events: none;
-}
 .cover-page.hide { opacity: 0; transform: scale(1.05); pointer-events: none; }
 
 .cover-content {
@@ -469,7 +456,6 @@ html, body {
    RESPONSIVE — ≤ 360px
    ================================================ */
 @media (max-width:360px) {
-  .cover-page::before { width: 130px; height: 130px; }
   .card-wrapper{padding:0.6rem 0.5rem 3rem}
   .card-section{padding:1.2rem 0.9rem}
   .section-title{font-size:1.1rem}
@@ -488,7 +474,6 @@ html, body {
 }
 /* 361 – 480px */
 @media (min-width:361px) and (max-width:480px) {
-  .cover-page::before { width: 180px; height: 180px; }
   .card-wrapper{padding:0.8rem 0.7rem 3.5rem}
   .card-section{padding:1.5rem 1.1rem}
   .tab-nav{padding:0.3rem;gap:0.18rem;top:0.6rem}
@@ -516,7 +501,6 @@ html, body {
 }
 /* ≥ 1024px */
 @media (min-width:1024px) {
-  .cover-page::before { width: 360px; height: 360px; }
   .card-wrapper{padding:2.5rem 2rem 5rem}
   .card-inner{max-width:700px;gap:1rem}
   .tab-nav{border-radius:26px;top:1rem}
