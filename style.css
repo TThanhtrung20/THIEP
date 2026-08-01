@@ -78,7 +78,9 @@ html, body {
 .cover-page {
   position: fixed; inset: 0; z-index: 100;
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(160deg, #ffd6e7 0%, #ffe4ec 40%, #fff0f6 70%, #fff5f8 100%);
+  background:
+    url('kitty-bg.png') center bottom / 320px auto no-repeat,
+    linear-gradient(160deg, #ffd6e7 0%, #ffe4ec 40%, #fff0f6 70%, #fff5f8 100%);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .cover-page.hide { opacity: 0; transform: scale(1.05); pointer-events: none; }
@@ -444,6 +446,7 @@ html, body {
    RESPONSIVE — ≤ 360px
    ================================================ */
 @media (max-width:360px) {
+  .cover-page { background-size: 200px auto; }
   .card-wrapper{padding:0.6rem 0.5rem 3rem}
   .card-section{padding:1.2rem 0.9rem}
   .section-title{font-size:1.1rem}
@@ -462,6 +465,7 @@ html, body {
 }
 /* 361 – 480px */
 @media (min-width:361px) and (max-width:480px) {
+  .cover-page { background-size: 260px auto; }
   .card-wrapper{padding:0.8rem 0.7rem 3.5rem}
   .card-section{padding:1.5rem 1.1rem}
   .tab-nav{padding:0.3rem;gap:0.18rem;top:0.6rem}
@@ -489,6 +493,7 @@ html, body {
 }
 /* ≥ 1024px */
 @media (min-width:1024px) {
+  .cover-page { background-size: 420px auto; }
   .card-wrapper{padding:2.5rem 2rem 5rem}
   .card-inner{max-width:700px;gap:1rem}
   .tab-nav{border-radius:26px;top:1rem}
