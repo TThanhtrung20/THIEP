@@ -69,25 +69,24 @@ document.addEventListener("DOMContentLoaded", () => {
 // TAB NAVIGATION
 // ================================================
 function switchTab(index) {
-  // Ẩn tất cả panels
-  document.querySelectorAll(".tab-panel").forEach(panel => {
-    panel.classList.remove("active");
-  });
+  document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
 
-  // Bỏ active tất cả tab buttons
-  document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.classList.remove("active");
-  });
-
-  // Hiện panel được chọn
   const targetPanel = document.querySelector(`.tab-panel[data-panel="${index}"]`);
   if (targetPanel) targetPanel.classList.add("active");
 
-  // Active tab button tương ứng
   const targetBtn = document.querySelector(`.tab-btn[data-tab="${index}"]`);
   if (targetBtn) targetBtn.classList.add("active");
 
-  // Scroll lên đầu thiệp
+  // Khi vào tab Lời Chúc (index 3), tự lấy tên từ RSVP hiển thị lên
+  if (index === 3) {
+    const rsvpName = document.getElementById("rsvpName").value.trim();
+    const display  = document.getElementById("wishNameDisplay");
+    if (display) {
+      display.textContent = rsvpName || "Khách mời";
+    }
+  }
+
   const cardWrapper = document.getElementById("cardWrapper");
   if (cardWrapper) {
     cardWrapper.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -400,17 +399,12 @@ function initCharCounter() {
 }
 
 function sendWish() {
-  const nameInput = document.getElementById("wishName");
   const textInput = document.getElementById("wishText");
-  const name = nameInput.value.trim();
   const text = textInput.value.trim();
 
-  if (!name) {
-    shakeInput(nameInput);
-    nameInput.placeholder = "Bạn chưa nhập tên kìa! 👇";
-    setTimeout(() => nameInput.placeholder = "Tên của bạn...", 2500);
-    return;
-  }
+  // Lấy tên từ ô RSVP
+  const name = document.getElementById("rsvpName").value.trim() || "Khách mời";
+
   if (!text) {
     shakeInput(textInput);
     textInput.placeholder = "Bạn chưa viết lời chúc kìa! 💌";
@@ -440,7 +434,6 @@ function sendWish() {
 }
 
 function sendAnother() {
-  document.getElementById("wishName").value = "";
   document.getElementById("wishText").value = "";
   document.getElementById("charCount").textContent = "0";
   document.getElementById("wishForm").style.display = "block";
