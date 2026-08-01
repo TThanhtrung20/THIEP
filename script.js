@@ -424,10 +424,16 @@ function submitRSVP(answer) {
     emoji.textContent = "🎉";
     msg.innerHTML = `Yay! Cảm ơn <strong>${escapeHtml(name)}</strong> đã xác nhận tham dự!<br/>
       Mình rất vui khi được đón bạn! Hẹn gặp nhau nhé 🎀`;
+    // Hiện ảnh khi đến
+    const photo = document.getElementById("rsvpResultPhoto");
+    if (photo) photo.style.display = "block";
   } else {
     emoji.textContent = "🥺";
     msg.innerHTML = `Ôi thật tiếc khi <strong>${escapeHtml(name)}</strong> không đến được!<br/>
       Mình hiểu mà, lần khác nhất định hội tụ nhé! 🌸`;
+    // Ẩn ảnh khi không đến
+    const photo = document.getElementById("rsvpResultPhoto");
+    if (photo) photo.style.display = "none";
   }
 
   // Confetti nếu đến

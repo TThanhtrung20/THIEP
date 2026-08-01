@@ -578,16 +578,19 @@ html, body {
 /* ================================================
    RSVP
    ================================================ */
-.rsvp-photo-wrap {
-  margin: -2.2rem -2rem 1.4rem;
-  border-radius: var(--radius) var(--radius) 0 0;
+.rsvp-result-photo {
+  margin: 0.8rem auto 1rem;
+  width: 200px;
+  border-radius: var(--radius);
   overflow: hidden;
-  height: 220px;
+  box-shadow: 0 8px 24px var(--shadow);
+  border: 3px solid var(--pink-mid);
+  animation: popIn 0.5s cubic-bezier(0.36,0.07,0.19,0.97);
 }
 
-.rsvp-photo-wrap img {
+.rsvp-result-photo img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
   object-position: center top;
   display: block;
