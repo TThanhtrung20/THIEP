@@ -116,8 +116,7 @@ const HEART_PHOTOS = [
   'img/a1.jpeg','img/a2.jpeg','img/a3.jpeg','img/a4.jpeg','img/a5.jpeg',
   'img/photo1.jpg','img/photo2.jpg','img/photo3.jpg','img/photo4.jpg','img/photo5.jpg',
   'img/g1.jpg','img/g2.jpg','img/g3.jpg','img/g4.jpg','img/g5.jpg',
-  'img/g6.jpg','img/g7.jpg','img/g8.jpg','img/g9.jpg','img/g10.jpg',
-  'img/g11.jpg','img/g12.jpg','img/g13.jpg','img/23.jpg',
+  'img/g6.jpg','img/g7.jpg',
 ];
 
 function buildHeartCollage() {
