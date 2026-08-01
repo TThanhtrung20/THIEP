@@ -103,6 +103,95 @@ html, body {
   filter: drop-shadow(0 6px 18px rgba(232,82,122,0.3));
   animation: kittyWiggle 3s ease infinite;
 }
+
+/* ================================================
+   ĐƯỜNG CHẠY XE HELLO KITTY
+   ================================================ */
+.kitty-road {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Đường kẻ ngang */
+.road-line {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--pink-mid) 8%,
+    var(--pink-mid) 92%,
+    transparent 100%
+  );
+  border-radius: 2px;
+}
+
+/* Nét đứt giữa đường */
+.road-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 18px,
+    rgba(255,133,161,0.4) 18px,
+    rgba(255,133,161,0.4) 36px
+  );
+  transform: translateY(-50%);
+}
+
+/* Hello Kitty chạy xe */
+.kitty-rider {
+  position: absolute;
+  bottom: 28px;
+  left: -160px;
+  animation: driveAcross 5s linear infinite;
+}
+
+.kitty-rider img {
+  width: 110px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(232,82,122,0.25));
+  display: block;
+  transform: translateY(-100%);
+}
+
+@keyframes driveAcross {
+  0%   { left: -140px; }
+  100% { left: calc(100% + 20px); }
+}
+
+/* Bóng bánh xe */
+.kitty-rider::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 8px;
+  background: radial-gradient(ellipse, rgba(232,82,122,0.2), transparent 70%);
+  border-radius: 50%;
+}
+
+@media (max-width: 480px) {
+  .kitty-rider img { width: 80px; }
+  .kitty-road { height: 85px; }
+  .road-line { bottom: 20px; }
+  .kitty-rider { bottom: 20px; animation-duration: 4s; }
+}
 @keyframes kittyWiggle {
   0%,100%{transform:rotate(-3deg) scale(1)}
   25%{transform:rotate(3deg) scale(1.04)}
