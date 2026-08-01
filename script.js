@@ -55,6 +55,29 @@ function sendToNetlify(formName, fields) {
 }
 
 // ================================================
+// PHOTO SLIDESHOW
+// ================================================
+let currentSlide = 0;
+let slideTimer = null;
+
+function initSlideshow() {
+  slideTimer = setInterval(() => {
+    currentSlide = (currentSlide + 1) % 5;
+    goToSlide(currentSlide);
+  }, 3000);
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  const track = document.getElementById("photoTrack");
+  if (track) track.style.transform = `translateX(-${index * 100}%)`;
+
+  document.querySelectorAll(".dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
+}
+
+// ================================================
 // KHỞI TẠO KHI TRANG TẢI
 // ================================================
 document.addEventListener("DOMContentLoaded", () => {
@@ -63,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMusicState();
   initAdminShortcut();
   initCharCounter();
+  initSlideshow();
 });
 
 // ================================================
