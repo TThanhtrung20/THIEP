@@ -81,20 +81,8 @@
       <!-- ---- PANEL 0: Lời nhắn ---- -->
       <div class="tab-panel active" data-panel="0">
         <section class="card-section greet-section">
-          <div class="deco-top">✦ ✦ ✦</div>
-          <div class="grad-hat">🎓</div>
-          <h2 class="section-title">Lời Mời Tham Dự</h2>
-          <div class="divider-fancy"></div>
-          <p class="message-text">
-            Hello cả nhà mình nhá! 💙<br/><br/>
-            Mình là Minzther nè 🫶. Mình đã chính thức hoàn thành hành trình học tập của mình và sắp bước sang một chương mới đầy thú vị.
-            Trong ngày trọng đại này, mình rất muốn được chia sẻ niềm vui cùng với những người bạn đặc biệt nhất —
-            chính là <strong>bạn</strong>! 🌸<br/><br/>
-            Hãy đến chung vui cùng mình nhé, sự có mặt của bạn là món quà ý nghĩa nhất! 🎉
-          </p>
-          <div class="deco-bottom">~ ~ ~</div>
 
-          <!-- Slideshow ảnh chủ thiệp -->
+          <!-- Slideshow ảnh chủ thiệp — ở trên đầu -->
           <div class="photo-slideshow">
             <div class="photo-track" id="photoTrack">
               <div class="photo-slide"><img src="img/photo1.jpg" alt="Ảnh 1" /></div>
@@ -111,6 +99,22 @@
               <span class="dot" onclick="goToSlide(4)"></span>
             </div>
           </div>
+
+          <div class="deco-top" style="margin-top:1.2rem;">✦ ✦ ✦</div>
+          <div class="grad-hat">🎓</div>
+          <h2 class="section-title">Lời Mời Tham Dự</h2>
+          <div class="divider-fancy"></div>
+          <div class="greet-name-badge" id="greetNameBadge" style="display:none;">
+            🎀 Kính gửi: <span id="greetNameText"></span>
+          </div>
+          <p class="message-text">
+            Hello cả nhà mình nhá! 💙<br/><br/>
+            Mình là Minzther nè 🫶. Mình đã chính thức hoàn thành hành trình học tập của mình và sắp bước sang một chương mới đầy thú vị.
+            Trong ngày trọng đại này, mình rất muốn được chia sẻ niềm vui cùng với những người bạn đặc biệt nhất —
+            chính là <strong>bạn</strong>! 🌸<br/><br/>
+            Hãy đến chung vui cùng mình nhé, sự có mặt của bạn là món quà ý nghĩa nhất! 🎉
+          </p>
+          <div class="deco-bottom">~ ~ ~</div>
 
           <button class="tab-next-btn" onclick="switchTab(1)">
             Xem thông tin sự kiện <i class="fa-solid fa-arrow-right"></i>

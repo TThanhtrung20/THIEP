@@ -323,10 +323,10 @@ html, body {
    PHOTO SLIDESHOW - Tab Lời Mời
    ================================================ */
 .photo-slideshow {
-  margin: 1.4rem 0 0.5rem;
-  border-radius: var(--radius);
+  margin: -2.2rem -2rem 1.4rem;   /* kéo sát mép trên và 2 bên của card */
+  border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;
-  box-shadow: 0 8px 28px var(--shadow-soft);
+  box-shadow: 0 4px 16px var(--shadow-soft);
   position: relative;
 }
 
@@ -395,6 +395,28 @@ html, body {
 .grad-hat { font-size: 3.2rem; margin-bottom: 0.6rem; }
 .message-text { font-size: 1rem; line-height: 1.9; color: var(--text-mid); max-width: 500px; margin: 0 auto; }
 .message-text strong { color: var(--pink-deep); font-weight: 700; }
+
+/* Badge tên khách trong Lời Mời */
+.greet-name-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, var(--pink-pastel), var(--pink-light));
+  border: 2px solid var(--pink-mid);
+  border-radius: 50px;
+  padding: 0.5rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--pink-deep);
+  margin-bottom: 1.2rem;
+  animation: fadeInUp 0.5s ease;
+  box-shadow: 0 4px 14px var(--shadow-soft);
+}
+.greet-name-badge span {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+}
 
 /* ================================================
    SECTION 2: SỰ KIỆN
