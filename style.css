@@ -107,9 +107,15 @@ html, body {
 .cap-icon { font-size: 5rem; margin-bottom: 0.6rem; animation: bounce 2.2s ease infinite; display: block; }
 @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
 
-/* Hello Kitty lớn trên bìa */
+/* Hello Kitty hình thật trên bìa */
 .cover-kitty { display: flex; justify-content: center; margin-bottom: 0.8rem; }
-.cover-kitty svg { filter: drop-shadow(0 6px 18px rgba(232,82,122,0.3)); animation: kittyWiggle 3s ease infinite; }
+.cover-kitty img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(232,82,122,0.3));
+  animation: kittyWiggle 3s ease infinite;
+}
 @keyframes kittyWiggle {
   0%,100%{transform:rotate(-3deg) scale(1)}
   25%{transform:rotate(3deg) scale(1.04)}
