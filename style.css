@@ -28,6 +28,7 @@ html, body {
   background: linear-gradient(135deg, #ffe4ec 0%, #fff0f4 40%, #fce4f0 70%, #ffe8f5 100%);
   color: var(--text-dark);
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* ================================================
@@ -48,6 +49,11 @@ html, body {
   box-shadow: inset -2px -2px 5px rgba(255,255,255,0.7), 0 0 10px rgba(255,133,161,0.25);
 }
 .particle.flower { background: transparent; line-height: 1; user-select: none; animation: floatSway var(--dur) ease-in infinite; animation-delay: var(--delay); }
+.particle.bokeh {
+  animation-name: floatBokeh;
+  mix-blend-mode: screen;
+  filter: blur(4px);
+}
 .particle.kitty  { background: transparent; animation: floatKitty var(--dur) ease-in infinite; animation-delay: var(--delay); }
 
 @keyframes floatUp {
@@ -63,6 +69,26 @@ html, body {
   80%  { opacity: 0.5; }
   100% { opacity: 0; transform: translateY(-115vh) translateX(0) rotate(360deg); }
 }
+@keyframes floatBokeh {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(0.7);
+  }
+  20% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.22;
+    transform: translateY(-55vh) translateX(var(--sway)) scale(0.95);
+  }
+  80% {
+    opacity: 0.12;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-110vh) translateX(var(--sway)) scale(1.1);
+  }
+}
 @keyframes floatKitty {
   0%   { opacity: 0; transform: translateY(0) translateX(0) scale(0.7) rotate(-8deg); }
   10%  { opacity: 0.85; }
@@ -70,6 +96,29 @@ html, body {
   60%  { transform: translateY(-65vh) translateX(var(--sway)) scale(1.05) rotate(-6deg); }
   85%  { opacity: 0.5; }
   100% { opacity: 0; transform: translateY(-115vh) translateX(0) scale(0.8) rotate(10deg); }
+}
+
+.float-photo {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid rgba(255,255,255,0.85);
+  box-shadow: 0 4px 14px rgba(232,82,122,0.25);
+  opacity: 0.7;
+  animation: floatAround var(--dur) ease-in-out infinite alternate;
+}
+
+.float-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes floatAround {
+  0%   { transform: translate(0, 0) rotate(-4deg) scale(1); }
+  50%  { transform: translate(var(--sx), var(--sy)) rotate(4deg) scale(1.05); }
+  100% { transform: translate(calc(var(--sx)*-0.5), calc(var(--sy)*0.8)) rotate(-2deg) scale(0.97); }
 }
 
 /* ================================================
@@ -83,14 +132,16 @@ html, body {
   overflow: hidden;
 }
 
+
 .heart-photo {
   position: absolute;
-  border-radius: 50%;
+  border-radius: 22%;
   overflow: hidden;
-  border: 2.5px solid rgba(255,255,255,0.85);
-  box-shadow: 0 3px 10px rgba(232,82,122,0.25);
+  border: 2px solid rgba(255,255,255,0.92);
+  box-shadow: 0 6px 16px rgba(232,82,122,0.22);
   opacity: 0;
-  animation: heartPhotoIn 0.6s ease forwards;
+  animation: heartPhotoIn 0.7s ease forwards;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .heart-photo img {
@@ -100,10 +151,19 @@ html, body {
   display: block;
 }
 
-@keyframes heartPhotoIn {
-  from { opacity: 0; transform: scale(0.4); }
-  to   { opacity: 0.55; transform: scale(1); }
+
+.particle.bokeh {
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,204,233,0.45) 40%, transparent 70%);
+  filter: blur(5px);
+  mix-blend-mode: screen;
 }
+
+@keyframes heartPhotoIn {
+  from { opacity: 0; transform: scale(0.55); }
+  to   { opacity: 0.85; transform: scale(1); }
+}
+
 
 /* ================================================
    TRANG BÌA
@@ -111,7 +171,7 @@ html, body {
 .cover-page {
   position: fixed; inset: 0; z-index: 100;
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(160deg, #ffd6e7 0%, #ffe4ec 40%, #fff0f6 70%, #fff5f8 100%);
+  background: url('img/a13.jpg') center/cover no-repeat;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .cover-page.hide { opacity: 0; transform: scale(1.05); pointer-events: none; }
@@ -122,6 +182,10 @@ html, body {
   text-align: center;
   padding: 2rem 1.5rem;
   animation: fadeInUp 1s ease;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  border-radius: 36px;
+  box-shadow: 0 22px 48px rgba(232, 82, 122, 0.16);
 }
 
 .cap-icon { font-size: 5rem; margin-bottom: 0.6rem; animation: bounce 2.2s ease infinite; display: block; }

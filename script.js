@@ -112,65 +112,31 @@ function initSlideshow() {
 // ================================================
 // HEART COLLAGE - Trang bìa
 // ================================================
-const HEART_PHOTOS = [
-  'img/a1.jpeg','img/a2.jpeg','img/a3.jpeg','img/a4.jpeg','img/a5.jpeg',
-  'img/photo1.jpg','img/photo2.jpg','img/photo3.jpg','img/photo4.jpg','img/photo5.jpg',
-  'img/g1.jpg','img/g2.jpg','img/g3.jpg','img/g4.jpg','img/g5.jpg',
-  'img/g6.jpg','img/g7.jpg',
+const HEART_PHOTOS = [];
+
+// Ảnh bay rơi từ trên xuống
+const FLOAT_PHOTOS = [
+  'img/g3.jpg','img/g4.jpg','img/g5.jpg','img/g6.jpg','img/g7.jpg',
+  'img/g8.jpg','img/g9.jpg','img/g10.jpg','img/g11.jpg','img/g12.jpg',
+  'img/g13.jpg','img/23.jpg',
 ];
 
 function buildHeartCollage() {
   const container = document.getElementById('heartCollage');
   if (!container) return;
-  container.innerHTML = ''; // xóa cũ nếu có
-
-  const W = window.innerWidth;
-  const H = window.innerHeight;
-
-  const cx = W / 2;
-  const cy = H / 2 - H * 0.03; // dịch lên xíu cho cân đối
-  // Scale: dùng chiều rộng để trái tim đủ to chứa thiệp
-  const scale = Math.min(W * 0.38, H * 0.38);
-
-  const steps = HEART_PHOTOS.length;
-  const points = [];
-  for (let i = 0; i < steps; i++) {
-    const t = (i / steps) * 2 * Math.PI;
-    const hx = 16 * Math.pow(Math.sin(t), 3);
-    const hy = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
-    points.push({
-      x: cx + hx * scale / 16,
-      y: cy + hy * scale / 16,
-    });
-  }
-
-  // Ảnh to vừa, không chồng lên nhau quá nhiều
-  const size = Math.max(52, Math.min(W, H) * 0.09);
-
-  points.forEach((pt, i) => {
-    const div = document.createElement('div');
-    div.className = 'heart-photo';
-    div.style.cssText = `
-      width: ${size}px;
-      height: ${size}px;
-      left: ${pt.x - size/2}px;
-      top:  ${pt.y - size/2}px;
-      animation-delay: ${i * 0.04}s;
-      opacity: 0;
-    `;
-    const img = document.createElement('img');
-    img.src = HEART_PHOTOS[i % HEART_PHOTOS.length];
-    img.alt = '';
-    div.appendChild(img);
-    container.appendChild(div);
-  });
+  container.innerHTML = '';
 }
 
 // ================================================
-// KHỞI TẠO KHI TRANG TẢI
+// FLOAT PHOTOS - Ảnh bay rơi từ trên xuống
+// ================================================
+function buildFloatPhotos() {
+  // No floating images needed for the cover.
+}
 // ================================================
 document.addEventListener("DOMContentLoaded", () => {
   buildHeartCollage();
+  // buildFloatPhotos();
   createParticles();
   startCountdown();
   initMusicState();
@@ -260,6 +226,25 @@ function createParticles() {
       --sway:  ${(Math.random() - 0.5) * 60}px;
     `;
     container.appendChild(f);
+  }
+
+  // ---- 2.5. Bokeh ánh sáng mượt ----
+  const bokehCount = isMobile ? 10 : 18;
+  for (let i = 0; i < bokehCount; i++) {
+    const b = document.createElement("div");
+    b.className = "particle bokeh";
+    const size = Math.random() * 90 + 40;
+    b.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${Math.random() * 100}%;
+      bottom: ${Math.random() * -20}%;
+      --dur: ${Math.random() * 14 + 8}s;
+      --delay: ${Math.random() * 10}s;
+      --sway: ${(Math.random() - 0.5) * 80}px;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.9), rgba(255,214,224,0.35) 30%, transparent 70%);
+    `;
+    container.appendChild(b);
   }
 
   // ---- 3. Hello Kitty ----
