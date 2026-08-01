@@ -280,8 +280,11 @@ html, body {
 /* ================================================
    TAB PANELS
    ================================================ */
-.tab-panel { display: none; animation: fadeInUp 0.35s ease both; }
-.tab-panel.active { display: block; }
+.tab-panel { display: none; }
+.tab-panel.active {
+  display: block;
+  animation: fadeInUp 0.35s ease both;
+}
 
 /* ================================================
    CARD SECTION
@@ -419,7 +422,8 @@ html, body {
    ================================================ */
 .greet-section {
   background: linear-gradient(145deg, rgba(255,255,255,0.97), rgba(255,228,236,0.6)) !important;
-  text-align: center; position: relative; overflow: hidden;
+  text-align: center; position: relative; overflow: visible;
+  padding-top: 1rem;
 }
 .greet-section::before {
   content: ''; position: absolute; top: -40px; right: -40px;
