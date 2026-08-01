@@ -92,9 +92,20 @@ function initSlideshow() {
   // Chỉ render vị trí ban đầu, timer sẽ khởi động sau khi thiệp mở
   updateCarousel();
 
-  // Bấm vào ảnh để chuyển
+  // Bấm vào ảnh carousel để chuyển
   document.querySelectorAll('.c-item').forEach((item, i) => {
     item.addEventListener('click', () => goToSlide(i));
+  });
+
+  // Lightbox cho gallery
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      const lb = document.createElement('div');
+      lb.className = 'gallery-lightbox';
+      lb.innerHTML = `<img src="${img.src}" alt="" />`;
+      lb.addEventListener('click', () => lb.remove());
+      document.body.appendChild(lb);
+    });
   });
 }
 
